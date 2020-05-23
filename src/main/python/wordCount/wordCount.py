@@ -10,7 +10,7 @@ from pyspark.context import SparkContext, SparkConf
 if __name__ == "__main__":
     config = SparkConf().setAppName("wordCount").setMaster("local")
     sc = SparkContext()
-    lines = sc.textFile("./src\main\python\wordCount\hello.txt")
+    lines = sc.textFile("./src/main/python/wordCount/hello.txt")
     words = lines.flatMap(lambda line: line.split(" "))
     wordCountMap = words.map(lambda word:(word, 1))
     # count = wordCountMap.reduceByKey(lambda preCount, count: preCount + count)
